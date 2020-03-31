@@ -77,10 +77,10 @@ echo "bind-dynamic" >> /etc/dnsmasq.conf
 echo "server=8.8.8.8" >> /etc/dnsmasq.conf
 echo "domain-needed" >> /etc/dnsmasq.conf
 echo "bogus-priv" >> /etc/dnsmasq.conf
-echo "dhcp-range=10.10.10.150,10.10.10.200,255.255.255.0,12h" >> /etc/dnsmasq.conf
+echo "dhcp-range=10.0.0.1,10.10.10.50,255.255.255.0,2h" >> /etc/dnsmasq.conf
 echo "#Set up redirect for email.com" >> /etc/dnsmasq.conf
-echo "dhcp-option=3,10.10.10.10" >> /etc/dnsmasq.conf
-echo "address=/email.com/10.10.10.10" >> /etc/dnsmasq.conf
+echo "dhcp-option=3,10.0.0.1" >> /etc/dnsmasq.conf
+echo "address=/email.com/10.0.0.1" >> /etc/dnsmasq.conf
 
 mv /etc/network/interfaces /etc/network/interfaces.org
 
@@ -114,7 +114,7 @@ fi
 cd $HOME/temp
 wget https://raw.githubusercontent.com/ranjeet61191/Raspberrypi4B_autohotspotsetup/master/autohotspotN.txt
 #mod ip address for our custom setup
-sed -i 's/192.168.50.5/10.10.10.10/' autohotspotN.txt
+sed -i 's/192.168.50.5/10.0.0.1/' autohotspotN.txt
 mv autohotspotN.txt /usr/bin/autohotspotN
 chmod +x /usr/bin/autohotspotN
 
